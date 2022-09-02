@@ -1,0 +1,29 @@
+.container{
+    width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.col{
+    flex-direction: column;
+
+}
+
+.header__subtitle{
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.progress__wrapper{
+    border: 1px solid black;
+}
+
+.done__wrapper{
+    border: 1px solid black;
+}

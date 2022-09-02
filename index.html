@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Todo List</h1>
+            <div class="header__subtitle">
+                <div class="header__more">
+                    <!-- 0 more to do, -->
+                </div>
+                <div class="header__done">
+                    0 done
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="add-todo">
+        <div class="container">
+            <form action="">
+                <input type="text" class="add-todo__input" value="new task">
+            </form>
+            <button class="add-todo__btn">Add todo item</button>
+        </div>
+    </section>
+
+    <section class="todo-list">
+        <div class="container">
+            <div class="todo-list__wrapper">
+                <form action="">
+                    <p><input type="checkbox" class="todo-list__item" name="" value="">Todo 1</p>
+                    <p><input type="checkbox" class="todo-list__item" name="" value="">Todo 2</p>
+                    <p><input type="checkbox" class="todo-list__item" name="" value="">Todo 3</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="progress">
+        <div class="container col">
+            <div class="progress__title">IN PROGRESS</div>
+            <div class="progress__wrapper">
+                <div class="progress__item">Todo 1</div>
+                <div class="progress__item">Todo 2</div>
+                <div class="progress__item">Todo 3</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="done">
+        <div class="container col">
+            <div class="done__title">DONE</div>
+            <div class="done__wrapper">
+                <div class="done__item">Todo 1</div>
+                <div class="done__item">Todo 2</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./script.js"></script>
+</body>
+</html>
