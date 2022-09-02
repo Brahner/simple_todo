@@ -25,7 +25,7 @@ getNumTodo();
 
 document.querySelector('.header__done').textContent = `${getNumDone()} done`;
 
-document.querySelector('.add-todo__btn').addEventListener('click', ()=>{
+document.querySelector('.add-todo__btn').addEventListener('click', ()=>{		//! добавляет новую задачу
 	let newTask = document.querySelector('input').value;
 	let num = 0;
 	for(let elem of list){
@@ -33,7 +33,7 @@ document.querySelector('.add-todo__btn').addEventListener('click', ()=>{
 			num++
 		}
 	}
-	if(num === 0){
+	if(num === 0){				//? нужно добавить проверку на пустую строку
 		let obj = {};
 		obj['name'] = newTask, obj['status'] = 'To Do', obj['priority'] = 'low';
 		list.push(obj);
@@ -43,11 +43,11 @@ document.querySelector('.add-todo__btn').addEventListener('click', ()=>{
 });
 
 
-function getNumTodo(){
+function getNumTodo(){		//! выводит общие число задач
 	document.querySelector('.header__more').textContent = `${list.length} more to do,`;
 }
 
-function getNumDone(){
+function getNumDone(){		//! выводит число завершенных задач
 	let num = 0;
 	for(let elem of list){
 		if(elem['status'] === 'Done'){
@@ -64,23 +64,34 @@ function showTodoList(){			//! вывод полного списка задач
 	for(let i = 0; i < list.length; i++){
 		let item = document.createElement('div');
 		item.className = 'todo-list__item';
+		item.setAttribute('id', i);
 
 		let checkbox = document.createElement('input');
 		checkbox.setAttribute('type', 'checkbox');
 		checkbox.className = 'todo-list__checkbox';
 
+/* 		let prog = document.createElement('button');
+		prog.className = 'todo-list__prog';
+		prog.textContent = 'in Progress'; */
+
 		let text = document.createElement('span');
 		text.className = 'todo-list__text';
 		text.textContent = `${list[i]['name']}`;
 
+		let high = document.createElement('button');
+		high.className = 'todo-list__high';
+		high.textContent = 'high';
+
+
 		let del = document.createElement('button');
 		del.className = 'todo-list__del';
 		del.textContent = 'del';
-		del.setAttribute('id', i);
 
 		wrapper.appendChild(item);
 		item.appendChild(checkbox);
+/* 		item.appendChild(prog); */
 		item.appendChild(text);
+		item.appendChild(high);
 		item.appendChild(del);
 	}
 }
@@ -114,13 +125,27 @@ function showTodoStatus(){			//! вывод списков in progress и done
 showTodoStatus()
 
 
-document.addEventListener('click', (e)=>{			//! удаление задачи
-	if(e.target.className === 'todo-list__del'){
-		list.splice(+(e.target.id), 1)
-		getNumTodo();
-		showTodoList();
-		showTodoStatus()
+document.addEventListener('click', (e)=>{
+	let indx = +(e.target.parentElement.id);
+	let string = e.target.parentElement.innerText;
+	let task = string.slice(0, string.indexOf('\n'));
+
+	
+	if(e.target.className === 'todo-list__del'){		//! удаление задачи
+		list.splice(indx, 1)
+
+	}else if(e.target.className === 'todo-list__high'){		//! меняет приоритет на высокий
+		for(let elem of list){
+			if(elem['name'] === task && elem['priority'] != 'high'){
+				elem['priority'] = 'high';
+				console.log(list)
+			}
+		}
 	}
+
+	getNumTodo();
+	showTodoList();
+	showTodoStatus();
 })
 
 

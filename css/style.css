@@ -27,3 +27,9 @@
 .done__wrapper{
     border: 1px solid black;
 }
+
+.todo-list__item{
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+}
