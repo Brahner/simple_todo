@@ -5,13 +5,18 @@ const list = [
         priority: 'low'
     },
     {
-        name: 'test',
+        name: 'Learn HTML',
         status: 'Done',
         priority: 'high'
     },
     {
-        name: 'test1',
+        name: 'Learn CSS',
         status: 'Done',
+        priority: 'high'
+    },
+    {
+        name: 'Learn JS',
+        status: 'In progress',
         priority: 'high'
     }
 ];
@@ -76,3 +81,26 @@ showTodoList()
 
 
 
+function showTodoStatus(){
+    let progress = document.querySelector('.progress__wrapper');
+    progress.querySelectorAll('.progress__item').forEach(n => n.remove());
+    let done = document.querySelector('.done__wrapper');
+    done.querySelectorAll('.done__item').forEach(n => n.remove());
+
+    for(let elem of list){
+        if(elem['status'] === 'In progress'){
+            let item = document.createElement('div');
+            item.className = 'progress__item';
+            item.textContent = `${elem['name']}`;
+            progress.appendChild(item);
+        }else if(elem['status'] === 'Done'){
+            let item = document.createElement('div');
+            item.className = 'done__item';
+            item.textContent = `${elem['name']}`;
+            done.appendChild(item);
+        }
+
+    }
+}
+
+showTodoStatus()
