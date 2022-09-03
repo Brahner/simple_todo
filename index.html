@@ -5,58 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/font-icons.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="header__title">Todo List</h1>
-            <div class="header__subtitle">
-                <div class="header__more">
-                    <!-- 0 more to do, -->
+
+    <div class="block">
+
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Todo List</h1>
+                <div class="header__subtitle">
+                    <div class="header__more">
+                        <!-- 0 more to do, -->
+                    </div>
+                    <div class="header__done">
+                        <!-- 0 done -->
+                    </div>
                 </div>
-                <div class="header__done">
-                    <!-- 0 done -->
+            </div>
+        </header>
+    
+        <section class="add-todo">
+            <div class="container">
+                <form action="">
+                    <input type="text" class="add-todo__input" value="new task">
+                </form>
+                <button class="add-todo__btn">Add todo</button>
+            </div>
+        </section>
+    
+        <section class="todo-list">
+            <div class="container">
+                <div class="todo-list__wrapper">
+                    
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <section class="add-todo">
-        <div class="container">
-            <form action="">
-                <input type="text" class="add-todo__input" value="new task">
-            </form>
-            <button class="add-todo__btn">Add todo item</button>
-        </div>
-    </section>
 
-    <section class="todo-list">
-        <div class="container">
-            <div class="todo-list__wrapper">
+        <section class="block-progress">
+            <div class="container col">
+                <div class="block-progress__wrapper">
+                    <div class="progress__title">IN PROGRESS</div>
+                    <div class="progress__wrapper">
+        
+                    </div>
 
+                    <div class="done__title">DONE</div>
+                    <div class="done__wrapper">
+        
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="progress">
-        <div class="container col">
-            <div class="progress__title">IN PROGRESS</div>
-            <div class="progress__wrapper">
-
-            </div>
-        </div>
-    </section>
-
-    <section class="done">
-        <div class="container col">
-            <div class="done__title">DONE</div>
-            <div class="done__wrapper">
-
-            </div>
-        </div>
-    </section>
+    </div>
 
     <script src="./script.js"></script>
 </body>

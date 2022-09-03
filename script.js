@@ -72,8 +72,8 @@ function showTodoList(){			//! вывод полного списка задач
 		checkbox.className = 'todo-list__checkbox';
 
 		let prog = document.createElement('button');
-		prog.className = 'todo-list__prog';
-		prog.textContent = 'in Progress';
+		prog.className = 'todo-list__prog icon-processing-time';
+		/* prog.innerHTML = `<img src="./icons/004-processing-time.svg" alt="in progress">`; */
 
 		let text = document.createElement('span');
 		if(list[i]['status'] === 'Done'){text.className = 'todo-list__text todo-list__text--done';}
@@ -81,13 +81,13 @@ function showTodoList(){			//! вывод полного списка задач
 		text.textContent = `${list[i]['name']}`;
 
 		let high = document.createElement('button');
-		high.className = 'todo-list__high';
-		high.textContent = 'high';
+		high.className = 'todo-list__high icon-alert';
+		/* high.innerHTML = `<img src="./icons/003-alert.svg" alt="high">`; */
 
 
 		let del = document.createElement('button');
-		del.className = 'todo-list__del';
-		del.textContent = 'del';
+		del.className = 'todo-list__del icon-delete';
+		/* del.innerHTML = `<img src="./icons/001-delete.svg" alt="del">`; */
 
 		wrapper.appendChild(item);
 		item.appendChild(checkbox);
@@ -139,17 +139,17 @@ document.addEventListener('click', (e)=>{		//! по нажатию кнопок 
 			else{list[indx]['status'] = 'Done';}
 			break;
 
-		case 'todo-list__prog':
+		case 'todo-list__prog icon-processing-time':
 			if(list[indx]['status'] === 'In progress'){list[indx]['status'] = 'To Do';}
 			else(list[indx]['status'] = 'In progress')
 			break;
 
-		case 'todo-list__high':
+		case 'todo-list__high icon-alert':
 			if(list[indx]['priority'] === 'high'){list[indx]['priority'] = 'low'}
 			else{list[indx]['priority'] = 'high'}
 			break;
 
-		case 'todo-list__del':
+		case 'todo-list__del icon-delete':
 			list.splice(indx, 1);
 			break;
 	}
