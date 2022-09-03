@@ -1,18 +1,18 @@
 const list = [ 
 	{
 		name: 'create a post',
-		status: 'In progress',
+		status: 'To Do',
 		priority: 'low'
 	},
 	{
 		name: 'Learn HTML',
 		status: 'Done',
-		priority: 'high'
+		priority: 'low'
 	},
 	{
 		name: 'Learn CSS',
 		status: 'Done',
-		priority: 'high'
+		priority: 'low'
 	},
 	{
 		name: 'Learn JS',
@@ -23,7 +23,7 @@ const list = [
 
 getNumTodo();
 
-document.querySelector('.header__done').textContent = `${getNumDone()} done`;
+
 
 document.querySelector('.add-todo__btn').addEventListener('click', ()=>{		//! добавляет новую задачу
 	let newTask = document.querySelector('input').value;
@@ -63,19 +63,21 @@ function showTodoList(){			//! вывод полного списка задач
 	wrapper.querySelectorAll('.todo-list__item').forEach(n => n.remove());
 	for(let i = 0; i < list.length; i++){
 		let item = document.createElement('div');
-		item.className = 'todo-list__item';
+		if(list[i]['priority'] === 'high'){item.className = 'todo-list__item todo-list__item--high'}
+		else{item.className = 'todo-list__item'}
 		item.setAttribute('id', i);
 
 		let checkbox = document.createElement('input');
 		checkbox.setAttribute('type', 'checkbox');
 		checkbox.className = 'todo-list__checkbox';
 
-/* 		let prog = document.createElement('button');
+		let prog = document.createElement('button');
 		prog.className = 'todo-list__prog';
-		prog.textContent = 'in Progress'; */
+		prog.textContent = 'in Progress';
 
 		let text = document.createElement('span');
-		text.className = 'todo-list__text';
+		if(list[i]['status'] === 'Done'){text.className = 'todo-list__text todo-list__text--done';}
+		else{text.className = 'todo-list__text';}
 		text.textContent = `${list[i]['name']}`;
 
 		let high = document.createElement('button');
@@ -89,11 +91,12 @@ function showTodoList(){			//! вывод полного списка задач
 
 		wrapper.appendChild(item);
 		item.appendChild(checkbox);
-/* 		item.appendChild(prog); */
+		item.appendChild(prog);
 		item.appendChild(text);
 		item.appendChild(high);
 		item.appendChild(del);
 	}
+	document.querySelector('.header__done').textContent = `${getNumDone()} done`;
 }
 
 showTodoList()
@@ -125,27 +128,34 @@ function showTodoStatus(){			//! вывод списков in progress и done
 showTodoStatus()
 
 
-document.addEventListener('click', (e)=>{
+document.addEventListener('click', (e)=>{		//! по нажатию кнопок меняет статус, приоритет или удаляет задачу
 	let indx = +(e.target.parentElement.id);
-	let string = e.target.parentElement.innerText;
-	let task = string.slice(0, string.indexOf('\n'));
+	/* let task = string.slice(0, string.indexOf('\n')); */
 
-	
-	if(e.target.className === 'todo-list__del'){		//! удаление задачи
-		list.splice(indx, 1)
 
-	}else if(e.target.className === 'todo-list__high'){		//! меняет приоритет на высокий
-		for(let elem of list){
-			if(elem['name'] === task && elem['priority'] != 'high'){
-				elem['priority'] = 'high';
-				console.log(list)
-			}
-		}
+	switch(e.target.className){
+		case 'todo-list__checkbox':
+			if(list[indx]['status'] === 'Done'){list[indx]['status'] = 'To Do';}
+			else{list[indx]['status'] = 'Done';}
+			break;
+
+		case 'todo-list__prog':
+			if(list[indx]['status'] === 'In progress'){list[indx]['status'] = 'To Do';}
+			else(list[indx]['status'] = 'In progress')
+			break;
+
+		case 'todo-list__high':
+			if(list[indx]['priority'] === 'high'){list[indx]['priority'] = 'low'}
+			else{list[indx]['priority'] = 'high'}
+			break;
+
+		case 'todo-list__del':
+			list.splice(indx, 1);
+			break;
 	}
 
 	getNumTodo();
 	showTodoList();
 	showTodoStatus();
 })
-
 

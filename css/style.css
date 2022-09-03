@@ -33,3 +33,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+.todo-list__item--high{
+    background-color: coral;
+}
+
+.todo-list__text--done{
+    text-decoration-line: line-through;
+}
+
+
