@@ -33,7 +33,7 @@ document.querySelector('.add-todo__btn').addEventListener('click', ()=>{		//! д
 			num++
 		}
 	}
-	if(num === 0){				//? нужно добавить проверку на пустую строку
+	if(num === 0 && newTask.length != 0){
 		let obj = {};
 		obj['name'] = newTask, obj['status'] = 'To Do', obj['priority'] = 'low';
 		list.push(obj);
