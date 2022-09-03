@@ -67,9 +67,8 @@ function showTodoList(){			//! вывод полного списка задач
 		else{item.className = 'todo-list__item'}
 		item.setAttribute('id', i);
 
-		let checkbox = document.createElement('input');
-		checkbox.setAttribute('type', 'checkbox');
-		checkbox.className = 'todo-list__checkbox';
+		let checkbox = document.createElement('button');
+		checkbox.className = 'todo-list__checkbox icon-check';
 
 		let prog = document.createElement('button');
 		prog.className = 'todo-list__prog icon-processing-time';
@@ -132,9 +131,13 @@ document.addEventListener('click', (e)=>{		//! по нажатию кнопок 
 	let indx = +(e.target.parentElement.id);
 	/* let task = string.slice(0, string.indexOf('\n')); */
 
+	if(e.target.localName === 'button'){
+		new Audio('zvuk.mp3').play();
+	}
+
 
 	switch(e.target.className){
-		case 'todo-list__checkbox':
+		case 'todo-list__checkbox icon-check':
 			if(list[indx]['status'] === 'Done'){list[indx]['status'] = 'To Do';}
 			else{list[indx]['status'] = 'Done';}
 			break;
