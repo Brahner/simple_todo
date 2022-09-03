@@ -50,6 +50,7 @@ body{
 }
 
 .todo-list__wrapper{
+	width: 100%;
 	padding: 14px;
 	border-radius: 4px;
 	/* background: #e0e0e0; */
@@ -57,7 +58,7 @@ body{
 }
 
 .todo-list__item{
-	width: 440px;
+	width: 100%;
 	padding: 6px;
 	margin-bottom: 8px;
 	display: flex;
@@ -112,6 +113,8 @@ body{
 
 .todo-list__text{
 	width: 70%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .todo-list__text--done{
@@ -152,3 +155,53 @@ box-shadow:  1px 1px 2px #ddbebe, -1px -1px 2px #ffe8e8;
 	margin-top: 14px;
 }
 
+@media (max-width: 575px){
+	.block{
+		width: 90%;
+	}
+	.add-todo__input{
+		width: 90%;
+	}
+	.add-todo__btn{
+		font-size: 12px;
+	}
+	.todo-list__wrapper{
+		padding: 8px;
+	}
+	.todo-list__item{
+		min-width: 100%;
+		padding: 4px;
+	}
+	.todo-list__item > button{
+		margin: 0 4px;
+	}
+	.todo-list__text{
+		max-width: 70%;
+		font-size: 14px;
+	}
+	.progress__item, .done__item, .add-todo__input{
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 320px){
+	.container{
+		padding: 5%;
+	}
+	.header__title{
+		font-size: 18px;
+	}
+	.header__subtitle{
+		width: 50%;
+		font-size: 12px;
+	}
+	.todo-list__item{
+		font-size: 12px;
+	}
+	.todo-list__text, .progress__item, .done__item{
+		font-size: 10px;
+	}
+	.done__title, .progress__title{
+		font-size: 12px;
+	}
+}
