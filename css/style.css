@@ -6,7 +6,6 @@ body{
 	width: 500px;
 	margin: 5% auto 2%;
 	border-radius: 4px;
-	/* background: #e0e0e0; */
 	box-shadow:  6px 6px 12px #aaaaaa,
 		-6px -6px 12px #ffffff;
 }
@@ -53,7 +52,6 @@ body{
 	width: 100%;
 	padding: 14px;
 	border-radius: 4px;
-	/* background: #e0e0e0; */
 	box-shadow:  2px 2px 3px #cacaca, -2px -2px 3px #f6f6f6;
 }
 
@@ -64,7 +62,6 @@ body{
 	display: flex;
 	justify-content: space-between;
 	border-radius: 4px;
-	/* background: #e0e0e0; */
 	box-shadow:  2px 2px 3px #aaaaaa,-2px -2px 3px #ffffff;
 }
 
@@ -140,7 +137,6 @@ box-shadow:  1px 1px 2px #ddbebe, -1px -1px 2px #ffe8e8;
 .block-progress__wrapper{
 	padding: 14px;
 	border-radius: 4px;
-	/* background: #e0e0e0; */
 	box-shadow:  2px 2px 3px #cacaca, -2px -2px 3px #f6f6f6;
 }
 
