@@ -30,7 +30,7 @@ document.querySelector('.add-todo__btn').addEventListener('click', ()=>{		//! д
 	let num = 0;
 	for(let elem of list){
 		if(elem['name'] === newTask){
-			num++
+			num++;
 		}
 	}
 	if(num === 0 && newTask.length != 0){
@@ -51,7 +51,7 @@ function getNumDone(){		//! выводит число завершенных з�
 	let num = 0;
 	for(let elem of list){
 		if(elem['status'] === 'Done'){
-			num++
+			num++;
 		}
 	}
 	return num;
@@ -98,7 +98,7 @@ function showTodoList(){			//! вывод полного списка задач
 	document.querySelector('.header__done').textContent = `${getNumDone()} done`;
 }
 
-showTodoList()
+showTodoList();
 
 
 
@@ -124,7 +124,7 @@ function showTodoStatus(){			//! вывод списков in progress и done
 	}
 }
 
-showTodoStatus()
+showTodoStatus();
 
 
 document.addEventListener('click', (e)=>{		//! по нажатию кнопок меняет статус, приоритет или удаляет задачу
@@ -160,5 +160,5 @@ document.addEventListener('click', (e)=>{		//! по нажатию кнопок 
 	getNumTodo();
 	showTodoList();
 	showTodoStatus();
-})
+});
 
